@@ -13,6 +13,7 @@ class IntroductionToBstTest {
         System.out.println("Beforee All...");
         posRoot = new TreeNode(5);
         posRoot.left = new TreeNode(1);
+        posRoot.left.right = new TreeNode(3);
         posRoot.right = new TreeNode(7);
         posRoot.right.left = new TreeNode(6);
         posRoot.right.right = new TreeNode(8);
@@ -36,6 +37,15 @@ class IntroductionToBstTest {
         assertEquals(posRoot.right.right, bst.inorderSuccessor(posRoot, posRoot.right));
         TreeNode r= new TreeNode(0);
         System.out.println(bst.inorderSuccessor(r, r));
+    }
 
+    @Test
+    public void testPredecessor() {
+        IntroductionToBst bst = new IntroductionToBst();
+        assertEquals(posRoot.val, bst.inorderPredecessor(posRoot, posRoot.right.left).val);
+        assertEquals(posRoot.left.right.val, bst.inorderPredecessor(posRoot, posRoot).val);
+//        assertEquals(posRoot.right.right, bst.inorderSuccessor(posRoot, posRoot.right));
+//        TreeNode r= new TreeNode(0);
+//        System.out.println(bst.inorderSuccessor(r, r));
     }
 }

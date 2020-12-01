@@ -38,14 +38,14 @@ public class IntroductionToBst {
     }
 
     private TreeNode predecessor(TreeNode root, TreeNode p, TreeNode parent) {
-        if (root == null) {
+        if (root == null)
             return parent;
-        }
-        if (root.val > p.val)
-            return predecessor(root.right, p, parent);
+        if (root.val < p.val)
+            return predecessor(root.right, p, root);
         else
-            return predecessor(root.left, p, root);
+            return predecessor(root.left, p, parent);
     }
+
 }
 
 class BSTIterator {
